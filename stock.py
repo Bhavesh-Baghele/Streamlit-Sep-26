@@ -12,15 +12,17 @@ symbol = st.text_input(
 ticker = yf.Ticker(symbol)
 # ticker_data=ticker.history(period="1mo")
 
-start_date = st.date_input(
-    "Start date",
-    dt.date.today()
-)
-
-end_date = st.date_input(
-    "End date",
-    dt.date.today()
-)
+col1,col2=st.columns(2)
+with col1:
+        start_date = st.date_input(
+        "Start date",
+        dt.date.today()
+        )
+with col2:
+        end_date = st.date_input(
+            "End date",
+            dt.date.today()
+        )
 
 ticker_data = ticker.history(
     start = start_date,
